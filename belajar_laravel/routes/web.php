@@ -14,3 +14,24 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+//Closure
+Route::get('/profil', function() {
+	return "ini adalah profil siswa";
+})->name('profil');
+
+//Root Name
+Route::get("/tesname", function() {
+	return route('profil');
+});
+
+//Parameter
+Route::get('profil/{id}', function($id) {
+	return $id;
+});
+
+//Controller
+Route::get("/testcontroller", "TestController@show");
+
+//Resorce
+Route::resource('siswa', "SiswaController");
